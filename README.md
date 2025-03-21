@@ -1,7 +1,7 @@
 # GraphRAG Benchmark Datasets
 
 This repository contains the data assets used for benchmarking in the paper  
-**[RAG at Internet Scale: Benchmarking GraphRAG on Heterogeneous, Multi-Document, Real-World Tasks](https://arxiv.org/abs/2503.02922)**.
+**[Optimizing open-domain question answering with graph-based retrieval augmented generation](https://arxiv.org/abs/2503.02922)**.
 
 ## 📂 Repository Structure
 
@@ -19,7 +19,7 @@ To explore or run benchmarks:
 pip install graphrag
 ```
 
-Refer to the GraphRAG Getting Started Guide for additional context.
+Refer to the GraphRAG Getting [Started Guide](https://microsoft.github.io/graphrag/get_started/) for additional context.
 
 2. **Prepare Your Workspace:**
 
@@ -29,7 +29,7 @@ Create a new directory to hold your input files (e.g., for the Kevin Scott podca
 mkdir -p ./kevin_scott_podcasts/input
 ```
 
-Place the unzipped input files into the input/ folder.
+Place the unzipped input files into the input folder.
 
 3. **Initialize the GraphRAG Workspace:**
 
@@ -48,12 +48,12 @@ If using managed identity or another form of authentication, you may delete this
 graphrag index --root ./kevin_scott_podcasts
 ```
 
-⚠️ Indexing time varies based on the size of the dataset and may take from several minutes to several hours.
+Please note that indexing time varies based on the size of the dataset and may take several minutes to several hours.
 
 
 5. **Query the Dataset:**
 
-You can now run queries against your indexed dataset. For example, to perform a global search:
+You can now run queries against your indexed dataset. For example, to perform global search:
 
 ```
 graphrag query \
@@ -64,13 +64,13 @@ graphrag query \
 
 ## 📊 Benchmark Queries
 
-The exact queries used in the paper are included as .csv files in the data/ directory.
+The exact queries used in the paper are included as .csv files in the `data` directory.
 
 ## 🤝 Contributing
 
 We welcome contributions and suggestions!
 
-By submitting a pull request, you agree to the [Microsoft Contributor License Agreement (CLA).]https://cla.opensource.microsoft.com) A CLA bot will automatically check for compliance.
+By submitting a pull request, you agree to the [Microsoft Contributor License Agreement](https://cla.opensource.microsoft.com). A CLA bot will automatically check for compliance.
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
