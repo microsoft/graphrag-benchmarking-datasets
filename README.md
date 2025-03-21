@@ -1,24 +1,76 @@
-# Project
+# GraphRAG Benchmark Datasets
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+This repository contains the data assets used for benchmarking in the paper  
+**[RAG at Internet Scale: Benchmarking GraphRAG on Heterogeneous, Multi-Document, Real-World Tasks](https://arxiv.org/abs/2503.02922)**.
 
-As the maintainer of this project, please make a few updates:
+## 📂 Repository Structure
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+To explore or run benchmarks:
 
-## Contributing
+1. Navigate to the `data/` directory or the relevant subdirectory of interest.
+2. Unzip the benchmark dataset you're interested in.
+3. Follow the steps below to run the [GraphRAG](https://github.com/microsoft/graphrag) pipeline on these datasets.
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+## 🚀 Getting Started with GraphRAG
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+1. **Install GraphRAG:**
+
+```bash
+pip install graphrag
+```
+
+Refer to the GraphRAG Getting Started Guide for additional context.
+
+2. **Prepare Your Workspace:**
+
+Create a new directory to hold your input files (e.g., for the Kevin Scott podcast benchmark):
+
+```
+mkdir -p ./kevin_scott_podcasts/input
+```
+
+Place the unzipped input files into the input/ folder.
+
+3. **Initialize the GraphRAG Workspace:**
+
+```
+graphrag init --root ./kevin_scott_podcasts
+```
+
+This command creates two files inside the `./kevin_scott_podcasts/` folder:
+- `.env`: contains the GRAPHRAG_API_KEY environment variable, which should be set to your OpenAI or Azure OpenAI API key.
+If using managed identity or another form of authentication, you may delete this file.
+- `settings.yaml`: configures the GraphRAG pipeline. You may edit this to customize your pipeline behavior.
+
+4. **Run the Indexing Pipeline:**
+
+```
+graphrag index --root ./kevin_scott_podcasts
+```
+
+⚠️ Indexing time varies based on the size of the dataset and may take from several minutes to several hours.
+
+
+5. **Query the Dataset:**
+
+You can now run queries against your indexed dataset. For example, to perform a global search:
+
+```
+graphrag query \
+  --root ./kevin_scott_podcasts \
+  --method global \
+  --query "What is the nationality of Scott Derrickson?"
+```
+
+## 📊 Benchmark Queries
+
+The exact queries used in the paper are included as .csv files in the data/ directory.
+
+## 🤝 Contributing
+
+We welcome contributions and suggestions!
+
+By submitting a pull request, you agree to the [Microsoft Contributor License Agreement (CLA).]https://cla.opensource.microsoft.com) A CLA bot will automatically check for compliance.
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
