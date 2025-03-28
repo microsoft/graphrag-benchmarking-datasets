@@ -59,7 +59,7 @@ You can now run queries against your indexed dataset. For example, to perform gl
 graphrag query \
   --root ./kevin_scott_podcasts \
   --method global \
-  --query "What is the nationality of Scott Derrickson?"
+  --query "What recurring topics do tech leaders emphasize in their discussions?"
 ```
 
 ## 📊 Benchmark Queries
